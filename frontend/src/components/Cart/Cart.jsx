@@ -13,7 +13,10 @@ const Cart = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.products.map((product) => EstIndisponible(product, props.inCartProducts) ? <div></div> : LineShoppingCart(product, props.inCartProducts, props.onRemoveFromCart))}
+          {props.products.map((product) => 
+            EstIndisponible(product, props.inCartProducts) 
+              ? null
+              : LineShoppingCart(product, props.inCartProducts, props.onRemoveFromCart))}
         </tbody>
       </table>
       <span className="mx-auto">Total: {TotalPrice(props.products, props.inCartProducts)}$</span>
