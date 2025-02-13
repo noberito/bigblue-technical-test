@@ -10,17 +10,17 @@ const Selector = (props) => {
             <h1 className="bigblue_bold_font">Categories</h1>
             <div className="d-flex flex-column gap-2">
                 {categories.map(category => (
-                <button
-                    key={category}
-                    onClick={() =>
-                    props.selectedCategory === category
-                        ? props.setSelectedCategory(null)
-                        : props.setSelectedCategory(category)
-                    }
-                    className="btn btn-primary bigblue_font w-100"
-                >
-                    {category}
-                </button>
+                    <button
+                        key={category}
+                        onClick={() =>
+                        props.selectedCategory === category
+                            ? props.setSelectedCategory(null)
+                            : props.setSelectedCategory(category)
+                        }
+                        className="btn btn-primary bigblue_font w-100"
+                    >
+                        {category}
+                    </button>
                 ))}
             </div>
             </div>

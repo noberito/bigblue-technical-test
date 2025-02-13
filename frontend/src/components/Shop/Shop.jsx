@@ -27,12 +27,12 @@ const Shop = (props) => {
               </div>
             </span>
             <div className="d-flex flex-column align-items-end mt-2">
-            <button
-              onClick={props.availableProducts[product.id] > 0 ? (() => props.onAddToCart(product.id)) : (() => {})}
-              className="btn btn-primary bigblue_font"
-            >
-              Add to cart
-            </button>
+              <button
+                onClick={props.availableProducts[product.id] > 0 ? (() => props.onAddToCart(product.id)) : (() => {})}
+                className="btn btn-primary bigblue_font"
+              >
+                Add to cart
+              </button>
             </div>
           </div>
         </div>

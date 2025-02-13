@@ -50,7 +50,8 @@ const Cart = (props) => {
           {props.products.map((product) => 
             (props.inCartProducts[product.id] <= 0)
             ? null
-            : LineShoppingCart(product))}
+            : LineShoppingCart(product)
+          )}
         </tbody>
       </table>
       <span className="mx-auto bigblue_font">Total: {TotalPrice()}$</span>
