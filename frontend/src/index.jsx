@@ -86,6 +86,7 @@ const App = () => {
     <div className="d-flex justify-content-between">
       <Selector
         products={products}
+        selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
       <Shop

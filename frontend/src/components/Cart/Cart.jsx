@@ -53,7 +53,7 @@ const Cart = (props) => {
             : LineShoppingCart(product))}
         </tbody>
       </table>
-      <span className="mx-auto">Total: {TotalPrice()}$</span>
+      <span className="mx-auto bigblue_font">Total: {TotalPrice()}$</span>
     </div>
   );
 };

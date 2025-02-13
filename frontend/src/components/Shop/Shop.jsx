@@ -16,14 +16,14 @@ const Shop = (props) => {
           </div>
           <div className="card-body">
             <span className="card-title">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between bigblue_font">
                 <span className="bigblue_bold_font">{product.name}</span>
-                <span>{product.price}$</span>
+                <span >{product.price}$</span>
               </div>
             </span>
             <span className="card-title">
               <div className="d-flex justify-content-between">
-                <span className="bigblue_font">Remaining stock : {props.availableProducts[product.id]}</span>
+                <span className="bigblue_font">Stock : {props.availableProducts[product.id]}</span>
               </div>
             </span>
             <div className="d-flex flex-column align-items-end mt-2">
@@ -43,9 +43,9 @@ const Shop = (props) => {
   return (
     <div className="card m-4 w-50 pb-4">
       <h1 className="card-header bigblue_bold_font">Shop</h1>
-      <div className="d-flex justify-content-between flex-wrap">
+      <div className="d-flex justify-content-start flex-wrap">
         {props.products.map((product) => (
-          product.category === props.selectedCategory
+          product.category === props.selectedCategory || props.selectedCategory === null
           ? ItemCard(product)
           : null
         ))}
