@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./index.css";
+import "../../index.css";
 
 const Shop = (props) => {
 
@@ -44,7 +44,11 @@ const Shop = (props) => {
     <div className="card m-4 w-50 pb-4">
       <h1 className="card-header bigblue_bold_font">Shop</h1>
       <div className="d-flex justify-content-between flex-wrap">
-        {props.products.map((product) => (ItemCard(product)))}
+        {props.products.map((product) => (
+          product.category === props.selectedCategory
+          ? ItemCard(product)
+          : null
+        ))}
       </div>
     </div>
   );

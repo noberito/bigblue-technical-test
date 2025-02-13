@@ -11,6 +11,7 @@ type Product struct {
 	Name     string `json:"name"`
 	Price    int    `json:"price"`
 	Stock    int    `json:"stock"`
+	Category string `json:"category"`
 	ImageURL string `json:"image_url"`
 }
 
@@ -24,6 +25,7 @@ var products = []*Product{
 		Name:     "Milk",
 		Price:    10,
 		Stock:    20,
+		Category: "Dairy",
 		ImageURL: "https://images.unsplash.com/photo-1576186726115-4d51596775d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
 	},
 	{
@@ -31,6 +33,7 @@ var products = []*Product{
 		Name:     "Soda",
 		Price:    11,
 		Stock:    5,
+		Category: "Beverages",
 		ImageURL: "https://img-4.linternaute.com/mKXTbLlU0h1MoT6HRZy_FDyK7CI=/900x/smart/a8506dcf71b64b78bb5a66c7ce9cc05c/ccmcms-linternaute/13497750.jpg",
 	},
 	{
@@ -38,6 +41,7 @@ var products = []*Product{
 		Name:     "Broccoli",
 		Price:    5,
 		Stock:    10,
+		Category: "Vegetables",
 		ImageURL: "https://img-3.journaldesfemmes.fr/mgGEPie3NTYkwkOoGHOLs9AP9ZI=/1240x/smart/c74c02c06f094c709fe3478c583d0a4a/ccmcms-jdf/10659093.jpg",
 	},
 	{
@@ -45,6 +49,7 @@ var products = []*Product{
 		Name:     "Carrots",
 		Price:    5,
 		Stock:    10,
+		Category: "Vegetables",
 		ImageURL: "https://images.unsplash.com/photo-1447175008436-054170c2e979?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
 	},
 	{
@@ -52,6 +57,7 @@ var products = []*Product{
 		Name:     "Eggs",
 		Price:    8,
 		Stock:    20,
+		Category: "Eggs",
 		ImageURL: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
 	},
 	{
@@ -59,6 +65,7 @@ var products = []*Product{
 		Name:     "Cheese",
 		Price:    20,
 		Stock:    2,
+		Category: "Dairy",
 		ImageURL: "https://fr.dreamstime.com/photo-stock-partie-fromage-d-isolement-image45704062",
 	},
 }

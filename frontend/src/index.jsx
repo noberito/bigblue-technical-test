@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Cart } from "./components/Cart/Cart";
 import { Shop } from "./components/Shop/Shop";
+import { Selector } from "./components/Selector/Selector";
 
 const App = () => {
   const [products, setProducts] = React.useState([]);
@@ -22,6 +23,8 @@ const App = () => {
   // product.stock = availableProducts[product.id] + inCartProducts[product.id]
   const [inCartProducts, setInCartProducts] = React.useState({});
 
+  const [selectedCategory, setSelectedCategory] = React.useState({});
+
   // Fetch products from the backend
   // and store them in the products state.
   React.useEffect(() => {
@@ -41,8 +44,11 @@ const App = () => {
           return { ...acc, [curr.id]: 0 };
         }, {});
 
+        const initialSelectedCategory = null
+
         setAvailableProducts(initialAvailableProducts);
         setInCartProducts(initialInCartProducts);
+        setSelectedCategory(initialSelectedCategory)
       });
   }, []);
 
@@ -78,10 +84,15 @@ const App = () => {
   // Display the Shop component and the Cart component.
   return (
     <div className="d-flex justify-content-between">
+      <Selector
+        products={products}
+        setSelectedCategory={setSelectedCategory}
+      />
       <Shop
         products={products}
         availableProducts={availableProducts}
         onAddToCart={onAddToCart}
+        selectedCategory={selectedCategory}
       />
       <Cart 
         products={products} 
