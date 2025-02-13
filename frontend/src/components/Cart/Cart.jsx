@@ -1,61 +1,62 @@
 import * as React from "react";
 
 const Cart = (props) => {
+
+  const LineShoppingCart = (product) => {
+    return (
+      <tr key={product.id} className="bigblue_font">
+        <td className="align-middle text-center">
+          <img
+              className="img-fluid rounded"
+              src={product.image_url}
+              alt={product.name}
+              style={{ width: "30%"}}
+            />
+        </td>
+        <td className="align-middle text-start">{product.name}</td>
+        <td className="align-middle">{product.price}$</td>
+        <td className="align-middle text-center">{props.inCartProducts[product.id]}</td>
+        <td className="align-middle text-center">
+          {product.price * props.inCartProducts[product.id]}$
+        </td>
+        <td className="align-middle text-end">
+          <button onClick={() => props.onRemoveFromCart(product.id)} className="btn btn-danger btn-sm">
+            -
+          </button>
+        </td>
+      </tr>
+    );
+  };
+
+  const TotalPrice = () => {
+    return props.products.reduce((totalPrice, product) => product.price * props.inCartProducts[product.id] + totalPrice, 0) 
+  };
+
   return (
     <div className="card w-50 m-4 pb-4">
-      <h1 className="card-header">Shopping Cart</h1>
+      <h1 className="card-header bigblue_bold_font">Shopping Cart</h1>
       <table className="table">
         <thead>
-          <tr>
+          <tr className="bigblue_font">
+            <th></th>
             <th scope="col">Item</th>
-            <th scope="col">Quantity</th>
             <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {props.products.map((product) => 
-            EstIndisponible(product, props.inCartProducts) 
-              ? null
-              : LineShoppingCart(product, props.inCartProducts, props.onRemoveFromCart))}
+            (props.inCartProducts[product.id] <= 0)
+            ? null
+            : LineShoppingCart(product))}
         </tbody>
       </table>
-      <span className="mx-auto">Total: {TotalPrice(props.products, props.inCartProducts)}$</span>
+      <span className="mx-auto">Total: {TotalPrice()}$</span>
     </div>
   );
 };
 
-const LineShoppingCart = (product, inCartProducts, onRemoveFromCart) => {
-  return (
-    <tr key={product.id}>
-      <td>{product.name}</td>
-      <td>{inCartProducts[product.id]}</td>
-      <td>{product.price}$</td>
-      <div className="d-flex flex-column align-items-end mt-2">
-          {RemoveButton(product, onRemoveFromCart)}
-        </div>
-  </tr>
-  )
-}
-
-const RemoveButton = (product, onRemoveFromCart) => {
-  return (
-  
-    <button
-      onClick={() => onRemoveFromCart(product.id)}
-      className="btn btn-primary"
-    >
-      Remove from cart
-    </button>
-  
-  )
-}
-
-const EstIndisponible = (product, inCartProducts) => {
-  return (inCartProducts[product.id] <= 0)
-}
-
-const TotalPrice = (products, inCartProducts) => {
-  return products.reduce((totalPrice, product) => product.price * inCartProducts[product.id] + totalPrice, 0) 
-};
 
 export { Cart };

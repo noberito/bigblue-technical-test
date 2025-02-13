@@ -59,7 +59,7 @@ var products = []*Product{
 		Name:     "Cheese",
 		Price:    20,
 		Stock:    2,
-		ImageURL: "https://sc04.alicdn.com/kf/U3cddaf0f9eb7489893534e06ab0a856ab.jpeg",
+		ImageURL: "https://fr.dreamstime.com/photo-stock-partie-fromage-d-isolement-image45704062",
 	},
 }
 

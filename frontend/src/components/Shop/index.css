@@ -12,3 +12,12 @@
     bottom: 0;
     right: 0;
 }
+
+.bigblue_font{
+    font-family: "Inter", sans-serif;
+}
+
+.bigblue_bold_font{
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
